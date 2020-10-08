@@ -12,7 +12,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development --hot",
     "lint": "eslint --ignore-path .gitignore --fix 'src{**/,}*.{js,ts,tsx}'",
-    "prettier": "prettier --ignore-path .gitignore --write 'src{**/,}*.{js,ts,tsx}'"
+    "prettier": "prettier --ignore-path .gitignore --write 'src{**/,}*.{js,ts,tsx,css}'"
   },
   "dependencies": {
     "react": "16.13.1",
