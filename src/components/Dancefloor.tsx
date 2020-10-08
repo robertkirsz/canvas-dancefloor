@@ -1,11 +1,13 @@
-import React, { useRef, useContext, useEffect } from 'react'
+import React, { useRef, useContext, useEffect, useCallback } from 'react'
 import { observer } from 'mobx-react-lite'
+import throttle from 'lodash.throttle'
 import DancefloorStore from 'stores/Dancefloor'
 import getRandomColor from 'utils/getRandomColor'
 import styles from 'styles/Dancefloor.module.css'
 
+
 function Dancefloor() {
-  const { dancefloor } = useContext(DancefloorStore)
+  const { dancefloor, generateDancefloor } = useContext(DancefloorStore)
 
   const canvasRef = useRef(null)
 
@@ -46,7 +48,22 @@ function Dancefloor() {
     }
   }, [dancefloor])
 
-  return <canvas ref={canvasRef} className={styles.canvas} width="800" height="400" />
+  const handleMouseMove = () => {
+    generateDancefloor({ saveToServer: false })
+  }
+
+  const throttledMouseMove = useCallback(throttle(handleMouseMove, 300), [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className={styles.canvas}
+      width="800"
+      height="400"
+      onMouseMove={throttledMouseMove}
+      onTouchMove={throttledMouseMove}
+    />
+  )
 }
 
 export default observer(Dancefloor)
