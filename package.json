@@ -17,6 +17,8 @@
     "prettier": "prettier --ignore-path .gitignore --write 'src{**/,}*.{js,ts,tsx,css}'"
   },
   "dependencies": {
+    "mobx": "6.0.1",
+    "mobx-react-lite": "3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
