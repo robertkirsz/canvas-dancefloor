@@ -1,0 +1,11 @@
+canvas {
+  flex: 1;
+  order: 1;
+}
+
+@media (min-width: 600px) {
+  canvas {
+    flex: none;
+    order: 2;
+  }
+}

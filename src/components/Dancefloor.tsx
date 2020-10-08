@@ -2,6 +2,7 @@ import React, { useRef, useContext, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import DancefloorStore from 'stores/Dancefloor'
 import getRandomColor from 'utils/getRandomColor'
+import styles from 'styles/Dancefloor.module.css'
 
 function Dancefloor() {
   const { dancefloor } = useContext(DancefloorStore)
@@ -45,7 +46,7 @@ function Dancefloor() {
     }
   }, [dancefloor])
 
-  return <canvas ref={canvasRef} width="800" height="400" />
+  return <canvas ref={canvasRef} className={styles.canvas} width="800" height="400" />
 }
 
 export default observer(Dancefloor)
