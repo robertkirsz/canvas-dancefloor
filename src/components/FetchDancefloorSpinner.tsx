@@ -1,21 +1,21 @@
 import React, { useContext } from 'react'
 import { observer } from 'mobx-react-lite'
 import DancefloorStore from 'stores/Dancefloor'
-import styles from 'styles/Loader.module.css'
+import styles from 'styles/FetchDancefloorSpinner.module.css'
 
-function Loader() {
+function FetchDancefloorSpinner() {
   const { fetchingStatus } = useContext(DancefloorStore)
 
   if (fetchingStatus === 'pending')
     return (
       <div className={styles.wrapper}>
-        Loading<span>.</span>
-        <span>.</span>
-        <span>.</span>
+        Loading<span className="spinner-dot">.</span>
+        <span className="spinner-dot">.</span>
+        <span className="spinner-dot">.</span>
       </div>
     )
 
   return null
 }
 
-export default observer(Loader)
+export default observer(FetchDancefloorSpinner)

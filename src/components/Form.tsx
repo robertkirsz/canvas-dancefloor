@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { observer } from 'mobx-react-lite'
 import DancefloorStore from 'stores/Dancefloor'
+import SubmitButton from 'components/SubmitButton'
 import styles from 'styles/Form.module.css'
 
 function Form() {
@@ -41,7 +42,7 @@ function Form() {
         onChange={handleNumberOfRowsChange}
       />
 
-      <button disabled={!numberOfColumns || !numberOfRows}>Generate</button>
+      <SubmitButton />
     </form>
   )
 }

@@ -4,8 +4,7 @@ form {
   flex-direction: column;
 }
 
-form input,
-form button {
+form input {
   height: 48px;
   margin: 8px;
   padding: 8px;
@@ -16,14 +15,10 @@ form button {
   border-radius: none;
 }
 
-form input:hover,
-form button:hover:not(:disabled) {
+form input:hover {
   border-color: #777;
 }
 
-form button:disabled {
-  cursor: not-allowed;
-}
 
 @media (min-width: 600px) {
   form {
@@ -32,10 +27,5 @@ form button:disabled {
 
   form input {
     flex: 1;
-  }
-
-  form button {
-    flex: none;
-    cursor: pointer;
   }
 }

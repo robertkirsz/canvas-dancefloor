@@ -1,10 +1,10 @@
 import React from 'react'
 import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
 import { setupServer } from 'msw/node'
-import { fetchDancefloorMock } from 'mocks/apiMocks'
+import { fetchDancefloorMock, saveDancefloorMock } from 'mocks/apiMocks'
 import App from 'components/App'
 
-const server = setupServer(fetchDancefloorMock)
+const server = setupServer(fetchDancefloorMock, saveDancefloorMock)
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())

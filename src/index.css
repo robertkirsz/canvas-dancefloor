@@ -21,6 +21,36 @@ body {
   flex-direction: column;
 }
 
+.spinner-dot {
+  animation-name: animation;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+
+.spinner-dot:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.spinner-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.spinner-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+
 @media (min-width: 600px) {
   #root {
     justify-content: center;

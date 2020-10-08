@@ -6,6 +6,8 @@ interface DancefloorProperties {
   numberOfRows: number
 }
 
+let timeout: number
+
 class DancefloorStore {
   constructor() {
     makeAutoObservable(this)
@@ -15,6 +17,9 @@ class DancefloorStore {
 
   generateDancefloor = () => {
     this.dancefloor = { numberOfColumns: this.numberOfColumns, numberOfRows: this.numberOfRows }
+
+    clearTimeout(timeout)
+    timeout = window.setTimeout(this.saveDancefloor, 1000)
   }
 
   numberOfColumns: number = 0
@@ -51,6 +56,33 @@ class DancefloorStore {
 
   fetchDancefloorError = (error: string) => {
     this.fetchingStatus = 'error'
+    // TODO: show error message on UI
+    console.error(error)
+  }
+
+  savingStatus: 'pending' | 'fulfilled' | 'error' = 'fulfilled'
+
+  saveDancefloor = () => {
+    this.savingStatus = 'pending'
+
+    fetch('http://localhost:4000/dancefloor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ numberOfColumns: this.numberOfColumns, numberOfRows: this.numberOfRows })
+    })
+      .then(response => {
+        if (!response.ok) throw Error(response.statusText)
+      })
+      .then(this.saveDancefloorSuccess)
+      .catch(this.saveDancefloorError)
+  }
+
+  saveDancefloorSuccess = () => {
+    this.savingStatus = 'fulfilled'
+  }
+
+  saveDancefloorError = (error: string) => {
+    this.savingStatus = 'error'
     // TODO: show error message on UI
     console.error(error)
   }

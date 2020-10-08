@@ -8,3 +8,8 @@ export const fetchDancefloorMock = rest.get('http://localhost:4000/dancefloor', 
     })
   )
 )
+
+
+export const saveDancefloorMock = rest.post('http://localhost:4000/dancefloor', (_, response, context) =>
+  response(context.status(200))
+)

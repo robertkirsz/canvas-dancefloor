@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import DancefloorStore from 'stores/Dancefloor'
-import Loader from 'components/Loader'
+import FetchDancefloorSpinner from 'components/FetchDancefloorSpinner'
 import Form from 'components/Form'
 import Dancefloor from 'components/Dancefloor'
 
@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <>
-      <Loader />
+      <FetchDancefloorSpinner />
       <Form />
       <Dancefloor />
     </>
