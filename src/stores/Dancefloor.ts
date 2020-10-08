@@ -28,6 +28,32 @@ class DancefloorStore {
   changeNumberOfRows = (value: number) => {
     this.numberOfRows = value
   }
+
+  fetchingStatus: 'pending' | 'fulfilled' | 'error' = 'pending'
+
+  fetchDancefloor = () => {
+    this.fetchingStatus = 'pending'
+
+    fetch('http://localhost:4000/dancefloor')
+      .then(response => {
+        if (!response.ok) throw Error(response.statusText)
+        return response.json()
+      })
+      .then(this.fetchDancefloorSuccess)
+      .catch(this.fetchDancefloorError)
+  }
+
+  fetchDancefloorSuccess = (data: DancefloorProperties) => {
+    this.numberOfColumns = data.numberOfColumns
+    this.numberOfRows = data.numberOfRows
+    this.fetchingStatus = 'fulfilled'
+  }
+
+  fetchDancefloorError = (error: string) => {
+    this.fetchingStatus = 'error'
+    // TODO: show error message on UI
+    console.error(error)
+  }
 }
 
 export default createContext(new DancefloorStore())

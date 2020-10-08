@@ -1,27 +1,43 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { setupServer } from 'msw/node'
+import { fetchDancefloorMock } from 'mocks/apiMocks'
 import App from 'components/App'
 
-// I hope I have time to write more!
+const server = setupServer(fetchDancefloorMock)
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
+
+// TODO: I hope I have time to write more!
 describe('Main flow', () => {
   it('Has everything in place', async () => {
-    const { getByPlaceholderText, getByText } = render(<App />)
+    const { getByPlaceholderText, getByText, queryByText } = render(<App />)
 
     const columnsInputField = getByPlaceholderText('Set column quantity') as HTMLInputElement
+    const rowsInputField = getByPlaceholderText('Set row quantity') as HTMLInputElement
+    const button = getByText('Generate') as HTMLButtonElement
+  
+    expect(getByText('Loading')).toBeVisible()
+    
     expect(columnsInputField).toBeInTheDocument()
     expect(columnsInputField.value).toBe('')
 
-    const rowsInputField = getByPlaceholderText('Set row quantity') as HTMLInputElement
     expect(rowsInputField).toBeInTheDocument()
     expect(rowsInputField.value).toBe('')
 
-    const button = getByText('Generate') as HTMLButtonElement
     expect(button).toBeInTheDocument()
 
-    fireEvent.change(columnsInputField, { target: { value: '4' } })
-    expect(columnsInputField.value).toBe('4')
+    await waitForElementToBeRemoved(() => queryByText('Loading'))
 
-    fireEvent.change(rowsInputField, { target: { value: '2' } })
+    expect(columnsInputField.value).toBe('4')
     expect(rowsInputField.value).toBe('2')
+
+    fireEvent.change(columnsInputField, { target: { value: '20' } })
+    expect(columnsInputField.value).toBe('20')
+
+    fireEvent.change(rowsInputField, { target: { value: '10' } })
+    expect(rowsInputField.value).toBe('10')
   })
 })

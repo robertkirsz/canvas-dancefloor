@@ -9,6 +9,12 @@ npm install
 
 ## Development
 ```bash
+npm run server
+```
+This will launch the server at port 4000.
+
+Then in another terminal tab do:
+```bash
 npm start
 ```
 The app will be available at http://localhost:8080/.
