@@ -1,6 +1,12 @@
 import React from 'react'
-import styles from 'styles/App.module.css'
+import Form from 'components/Form'
+import Dancefloor from 'components/Dancefloor'
 
 export default function App() {
-  return <h1 className={styles.h1}>Hello World!</h1>
+  return (
+    <>
+      <Form />
+      <Dancefloor />
+    </>
+  )
 }

@@ -1,0 +1,37 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form input,
+form button {
+  height: 48px;
+  margin: 8px;
+  padding: 8px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid#ddd;
+  outline: none;
+  border-radius: none;
+}
+
+form input:hover,
+form button:hover {
+  border-color: #777;
+}
+
+@media (min-width: 600px) {
+  form {
+    flex-direction: row;
+  }
+
+  form input {
+    flex: 1;
+  }
+
+  form button {
+    flex: none;
+    cursor: pointer;
+  }
+}
