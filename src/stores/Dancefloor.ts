@@ -15,11 +15,13 @@ class DancefloorStore {
 
   dancefloor: DancefloorProperties = { numberOfColumns: 0, numberOfRows: 0 }
 
-  generateDancefloor = () => {
+  generateDancefloor = ({ saveToServer }: { saveToServer: boolean }) => {
     this.dancefloor = { numberOfColumns: this.numberOfColumns, numberOfRows: this.numberOfRows }
 
-    clearTimeout(timeout)
-    timeout = window.setTimeout(this.saveDancefloor, 1000)
+    if (saveToServer) {
+      clearTimeout(timeout)
+      timeout = window.setTimeout(this.saveDancefloor, 1000)
+    }
   }
 
   numberOfColumns: number = 0
@@ -52,6 +54,8 @@ class DancefloorStore {
     this.numberOfColumns = data.numberOfColumns
     this.numberOfRows = data.numberOfRows
     this.fetchingStatus = 'fulfilled'
+
+    this.generateDancefloor({ saveToServer: false })
   }
 
   fetchDancefloorError = (error: string) => {

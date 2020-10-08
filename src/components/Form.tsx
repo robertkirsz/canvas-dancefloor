@@ -11,7 +11,7 @@ function Form() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-    generateDancefloor()
+    generateDancefloor({ saveToServer: true })
   }
 
   const handleNumberOfColumnsChange = (event: React.ChangeEvent<HTMLInputElement>) => {

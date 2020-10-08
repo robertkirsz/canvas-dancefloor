@@ -39,6 +39,7 @@
     "html-webpack-plugin": "4.5.0",
     "isomorphic-fetch": "3.0.0",
     "jest": "26.5.2",
+    "jest-canvas-mock": "2.3.0",
     "json-server": "0.16.2",
     "msw": "0.21.2",
     "prettier": "2.1.2",
