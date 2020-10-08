@@ -13,6 +13,15 @@ npm start
 ```
 The app will be available at http://localhost:8080/.
 
+## Testing
+```bash
+npm jest
+```
+Or this to get coverage raport:
+```bash
+npm run jest:coverage
+```
+
 ## Linting
 ```bash
 npm run lint
