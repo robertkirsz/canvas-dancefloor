@@ -3,17 +3,21 @@ form {
   justify-content: center;
   flex-direction: column;
   order: 2;
+  flex: none;
 }
 
 form input {
   height: 48px;
   margin: 8px;
   padding: 8px;
+  font-size: 16px;
   text-align: center;
   background: #fff;
   border: 1px solid#ddd;
   outline: none;
   border-radius: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
 }
 
 form input:hover {

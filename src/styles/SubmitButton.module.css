@@ -4,10 +4,12 @@ button {
   margin: 8px;
   padding: 8px;
   text-align: center;
+  font-size: 16px;
   background: #fff;
   border: 1px solid#ddd;
   outline: none;
   border-radius: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 button:hover:not(:disabled) {
