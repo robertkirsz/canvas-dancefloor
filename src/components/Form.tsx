@@ -15,11 +15,11 @@ function Form() {
   }
 
   const handleNumberOfColumnsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    changeNumberOfColumns(parseInt(event.target.value))
+    changeNumberOfColumns(parseInt(event.target.value || '0'))
   }
 
   const handleNumberOfRowsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    changeNumberOfRows(parseInt(event.target.value))
+    changeNumberOfRows(parseInt(event.target.value || '0'))
   }
 
   return (
