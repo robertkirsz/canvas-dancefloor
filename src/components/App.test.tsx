@@ -6,7 +6,7 @@ import App from 'components/App'
 describe('Main flow', () => {
   it('Has everything in place', async () => {
     const { getByPlaceholderText, getByText } = render(<App />)
-    
+
     const columnsInputField = getByPlaceholderText('Set column quantity') as HTMLInputElement
     expect(columnsInputField).toBeInTheDocument()
     expect(columnsInputField.value).toBe('')
@@ -20,7 +20,7 @@ describe('Main flow', () => {
 
     fireEvent.change(columnsInputField, { target: { value: '4' } })
     expect(columnsInputField.value).toBe('4')
-    
+
     fireEvent.change(rowsInputField, { target: { value: '2' } })
     expect(rowsInputField.value).toBe('2')
   })

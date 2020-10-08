@@ -6,7 +6,7 @@
   "trailingComma": "none",
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "parser": "babel",
+  "parser": "typescript",
   "overrides": [
     {
       "files": "*.css",
