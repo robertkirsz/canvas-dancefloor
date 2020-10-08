@@ -4,10 +4,13 @@ import DancefloorStore from 'stores/Dancefloor'
 import styles from 'styles/Form.module.css'
 
 function Form() {
-  const { numberOfColumns, numberOfRows, changeNumberOfColumns, changeNumberOfRows } = useContext(DancefloorStore)
+  const { numberOfColumns, numberOfRows, changeNumberOfColumns, changeNumberOfRows, generateDancefloor } = useContext(
+    DancefloorStore
+  )
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
+    generateDancefloor()
   }
 
   const handleNumberOfColumnsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
