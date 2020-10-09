@@ -1,7 +1,7 @@
 module.exports = {
   roots: ['<rootDir>/src'],
   transform: { '^.+\\.tsx?$': 'ts-jest' },
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', 'isomorphic-fetch', 'jest-canvas-mock'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', 'jest-canvas-mock'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   // Allow absolute imports

@@ -1,16 +1,7 @@
 import React from 'react'
 import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
-import { setupServer } from 'msw/node'
-import { fetchDancefloorMock, saveDancefloorMock } from 'mocks/apiMocks'
 import App from 'components/App'
 
-const server = setupServer(fetchDancefloorMock, saveDancefloorMock)
-
-beforeAll(() => server.listen())
-afterEach(() => server.resetHandlers())
-afterAll(() => server.close())
-
-// TODO: I hope I have time to write more!
 describe('Main flow', () => {
   it('Has everything in place', async () => {
     const { getByPlaceholderText, getByText, queryByText } = render(<App />)
