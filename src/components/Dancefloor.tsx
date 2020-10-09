@@ -80,6 +80,7 @@ function Dancefloor() {
     <canvas
       ref={canvasRef}
       className={styles.canvas}
+      role="dancefloor"
       width="800"
       height="400"
       onMouseMove={handleMouseMove}
