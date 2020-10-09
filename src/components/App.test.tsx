@@ -6,8 +6,8 @@ describe('Main flow', () => {
   it('Has everything in place', () => {
     const { getByPlaceholderText, getByText, getByRole } = render(<App />)
     
-    expect(getByPlaceholderText('Set column quantity')).toBeInTheDocument()
-    expect(getByPlaceholderText('Set row quantity')).toBeInTheDocument()
+    expect(getByPlaceholderText('Columns')).toBeInTheDocument()
+    expect(getByPlaceholderText('Rows')).toBeInTheDocument()
     expect(getByText('Generate')).toBeInTheDocument()
     expect(getByRole('dancefloor')).toBeInTheDocument()
   })
@@ -15,8 +15,8 @@ describe('Main flow', () => {
   it('Fetches data from API', async () => {
     const { getByPlaceholderText, queryByText, findByText } = render(<App />)
   
-    const columnsInputField = getByPlaceholderText('Set column quantity') as HTMLInputElement
-    const rowsInputField = getByPlaceholderText('Set row quantity') as HTMLInputElement
+    const columnsInputField = getByPlaceholderText('Columns') as HTMLInputElement
+    const rowsInputField = getByPlaceholderText('Rows') as HTMLInputElement
 
     expect(columnsInputField.value).toBe('')
     expect(rowsInputField.value).toBe('')
@@ -31,8 +31,8 @@ describe('Main flow', () => {
   it('Has working form', () => {
     const { getByPlaceholderText } = render(<App />)
   
-    const columnsInputField = getByPlaceholderText('Set column quantity') as HTMLInputElement
-    const rowsInputField = getByPlaceholderText('Set row quantity') as HTMLInputElement
+    const columnsInputField = getByPlaceholderText('Columns') as HTMLInputElement
+    const rowsInputField = getByPlaceholderText('Rows') as HTMLInputElement
     
     fireEvent.change(columnsInputField, { target: { value: '20' } })
     expect(columnsInputField.value).toBe('20')

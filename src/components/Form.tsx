@@ -25,7 +25,7 @@ function Form() {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
-        placeholder="Set column quantity"
+        placeholder="Columns"
         type="number"
         min="0"
         max="20"
@@ -34,7 +34,7 @@ function Form() {
       />
 
       <input
-        placeholder="Set row quantity"
+        placeholder="Rows"
         type="number"
         min="0"
         max="20"

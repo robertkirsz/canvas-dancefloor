@@ -1,13 +1,15 @@
 form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  order: 2;
   flex: none;
+  order: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4px;
 }
 
 form > * {
-  margin: 8px;
+  flex: 1;
+  margin: 4px;
 }
 
 form input {
@@ -29,19 +31,12 @@ form input:hover {
 
 @media (min-width: 600px) {
   form {
-    flex-direction: row;
     order: 1;
-  }
+    padding: 8px;
+}
 
   form > * {
-    margin: 16px 0;
-  }
-
-  form > *:not(:first-child) {
-    margin-left: 16px;
-  }
-
-  form input {
-    flex: 1;
+    flex: 0 1 150px;
+    margin: 8px;
   }
 }
