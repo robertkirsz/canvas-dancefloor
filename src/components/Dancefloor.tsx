@@ -71,7 +71,7 @@ function Dancefloor() {
       x = Math.floor((event.clientX - left) / squareWidth)
       y = Math.floor((event.clientY - top) / squareHeight)
     }
-    
+
     if (x !== columnIndex) setColumnIndex(x)
     if (y !== rowIndex) setRowIndex(y)
   }

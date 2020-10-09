@@ -9,9 +9,9 @@ describe('Main flow', () => {
     const columnsInputField = getByPlaceholderText('Set column quantity') as HTMLInputElement
     const rowsInputField = getByPlaceholderText('Set row quantity') as HTMLInputElement
     const button = getByText('Generate') as HTMLButtonElement
-  
+
     expect(getByText('Loading')).toBeVisible()
-    
+
     expect(columnsInputField).toBeInTheDocument()
     expect(columnsInputField.value).toBe('')
 

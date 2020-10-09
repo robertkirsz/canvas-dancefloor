@@ -52,7 +52,7 @@ class DancefloorStore {
 
     this.generateDancefloor({ saveToServer: false })
   }
-  
+
   savingStatus: 'pending' | 'fulfilled' = 'fulfilled'
 
   saveDancefloor = () => {
