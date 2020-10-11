@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper.center {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 32px;
+}
+
+.wrapper.top-right {
+  top: 16px;
+  right: 16px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.wrapper.bottom-right {
+  right: 16px;
+  bottom: 16px;
+  font-size: 16px;
+  pointer-events: none;
+}
