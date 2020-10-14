@@ -21,7 +21,7 @@ class DancefloorStore {
 
     if (saveToServer) {
       clearTimeout(timeout)
-      timeout = window.setTimeout(this.saveDancefloor, 1000)
+      timeout = window.setTimeout(this.saveDancefloor, 500)
     }
   }
 
@@ -66,6 +66,16 @@ class DancefloorStore {
   saveDancefloorSuccess = () => {
     this.savingStatus = 'fulfilled'
   }
+
+  clear = () => {
+    this.numberOfColumns = 0
+    this.numberOfRows = 0
+    this.dancefloor = { numberOfColumns: 0, numberOfRows: 0 }
+    this.fetchingStatus = 'pending'
+    this.savingStatus = 'fulfilled'
+  }
 }
 
-export default createContext(new DancefloorStore())
+export const store = new DancefloorStore()
+
+export default createContext(store)

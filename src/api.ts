@@ -1,20 +1,20 @@
 import { DancefloorProperties } from 'stores/Dancefloor'
 
-const sleep = (time: number = 1500): Promise<void> => new Promise(resolve => setTimeout(resolve, time))
-
-const fetchDancefloor = async (): Promise<DancefloorProperties> => {
-  const dancefloor: DancefloorProperties = JSON.parse(localStorage.getItem('dancefloor')) || {
-    numberOfColumns: 4,
-    numberOfRows: 2
-  }
-
-  await sleep(1000)
-  return dancefloor
+export const defaultDancefloor: DancefloorProperties = {
+  numberOfColumns: 10,
+  numberOfRows: 10
 }
 
-const saveDancefloor = async (data: DancefloorProperties): Promise<void> => {
+const sleep = (time = 500): Promise<void> => new Promise(resolve => setTimeout(resolve, time))
+
+const fetchDancefloor = async (): Promise<DancefloorProperties> => {
   await sleep()
-  localStorage.setItem('dancefloor', JSON.stringify(data))
+  return JSON.parse(localStorage.getItem('dancefloor')) || defaultDancefloor
+}
+
+const saveDancefloor = async (dancefloor: DancefloorProperties): Promise<void> => {
+  await sleep()
+  localStorage.setItem('dancefloor', JSON.stringify(dancefloor))
 }
 
 export default { fetchDancefloor, saveDancefloor }
